@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, Suspense } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
 import Form from "@components/Form";
@@ -63,4 +63,13 @@ const UpdatePrompt = () => {
   );
 };
 
-export default UpdatePrompt;
+const SuspensedUpdatePrompt = () => {
+  // When using <UpdatePrompt />, wrap it in a <Suspense /> to avoid marking the entire route as dynamic route.
+  return (
+    <Suspense>
+      <UpdatePrompt/>
+    </Suspense>
+  );
+}
+
+export default SuspensedUpdatePrompt;

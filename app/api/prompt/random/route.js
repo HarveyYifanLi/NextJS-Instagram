@@ -1,29 +1,30 @@
-import Prompt from "@models/prompt";
-import { connectToDB } from "@utils/database";
 
 export const GET = async (request, { params }) => {
     try {
-        const page = 1;
+        const page = 3;
         const limit = 100;
         // request to https://picsum.photos/ for random pictures with extensibility for paginations
         const response = await fetch(`https://picsum.photos/v2/list?page=${page}&limit=${limit}`);
 
         const data = await response.json();
+
         // execute data mapping to transform random picture objects into the array of prompt objects for downstream components' consumption
         const formattedPrompts = data.map((pictureObj) => {
             const { id, author, url, download_url } = pictureObj;
 
+            const templateProfileImage = "https://picsum.photos/600"
+
             const promptTemplateObject = {
-                _id: new ObjectId(id),
+                _id: id,
                 creator: {
-                  _id: new ObjectId(id),
+                  _id: id,
                   email: `${author.replace(/\s/g,'')}@randomtest.com`,
                   username: `${author.replace(/\s/g,'')}_random`,
-                  image: download_url,
+                  image: templateProfileImage
                 },
-                prompt: url,
+                prompt: download_url,
                 tag: '#random',
-              }
+            }
 
             return promptTemplateObject;
         });

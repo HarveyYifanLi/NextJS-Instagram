@@ -29,7 +29,7 @@ const handler = NextAuth({
       // and having obtained the access_token (within the 'account' param) from this OAuth provider
       try {
         await connectToDB();
-        console.log('--------- within the signIn callback, { account, profile, user, credentials } param is:', { account, profile, user, credentials });
+        console.log('--------- within the signIn callback, { user } param is:', { user });
         // check if user already exists
         const userExists = await User.findOne({ email: profile.email });
 

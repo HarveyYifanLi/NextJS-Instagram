@@ -55,7 +55,7 @@ const PromptCard = ({ prompt, handleEdit, handleDelete }) => {
             alt='user_image'
             width={40}
             height={40}
-            className='rounded-full object-contain'
+            className='rounded-full w-10'
           />
         </div>
 
@@ -81,7 +81,7 @@ const PromptCard = ({ prompt, handleEdit, handleDelete }) => {
           alt='user_image'
           width={40}
           height={40}
-          className='container mx-auto mt-2'
+          className='container mx-auto mt-2 w-full'
         /> : <p className='my-4 font-satoshi text-sm text-gray-700'>{prompt.prompt}</p>
       }
 

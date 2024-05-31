@@ -21,8 +21,15 @@ const Feed = () => {
   const [allPrompts, setAllPrompts] = useState([]);
 
   const fetchPrompts = async () => {
-    const response = await fetch("/api/prompt");
-    const data = await response.json();
+    // fetch posts from database, if no posts exist, then fetch random posts from the Lorem Ipsum for photos site at https://picsum.photos/
+    let response = await fetch("/api/prompt");
+    let data = await response.json();
+
+    if (data.length === 0) {
+      // fetch random posts from the Lorem Ipsum for photos
+      response = await fetch("/api/prompt/random");
+      data = await response.json();
+    }
 
     setAllPrompts(data);
   };

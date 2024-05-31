@@ -3,8 +3,8 @@ import Nav from '@components/Nav';
 import Provider from '@components/Provider';
 
 export const metadata = {
-    title: 'FinGuard',
-    description: 'AI-powered compliance detection'
+    title: 'Insta-brother',
+    description: 'Instagram brother app'
 }
 
 const RootLayout = ({children}) => {

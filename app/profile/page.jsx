@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 import Profile from "@components/Profile"; // This is the pure presentational, reusable Profile component
 
+// This is the reusable Container component that contains all the states for managing Profile component
 const MyProfile = () => {
   const router = useRouter();
   const { data: session } = useSession();
@@ -50,7 +51,7 @@ const MyProfile = () => {
   return (
     <Profile
       name='My'
-      desc='Welcome to your personalized profile page. Share your exceptional prompts and inspire others with the power of your imagination'
+      desc='Welcome to your personalized profile page. Share your exceptional posts and inspire others with the power of your imagination'
       data={myPrompts}
       handleEdit={handleEdit}
       handleDelete={handleDelete}

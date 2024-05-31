@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import Image from "next/image";
 
 const TopicCard = () => {
@@ -13,7 +12,7 @@ const TopicCard = () => {
             loader={({ src }) => src}
             unoptimized={true}
             src="https://picsum.photos/seed/picsum/200"
-            alt='user_image'
+            alt='scenery_image'
             width={40}
             height={40}
             className='rounded-full object-contain w-40'
@@ -21,7 +20,7 @@ const TopicCard = () => {
 
           <div className='flex flex-col'>
             <h2 className='font-satoshi font-semibold text-gray-900'>
-              #SomeTopicExample
+              #Sceneries
             </h2>
             <p className='font-inter font-semibold text-sm text-gray-800'>
               10,691,114 posts
